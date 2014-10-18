@@ -1,12 +1,23 @@
-#What is mean total number of steps taken per day
-```{r}
-#Loading the data into ac variable
+<<<<<<< HEAD
+=======
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
+
+
+## Loading and preprocessing the data
+```{r echo=TRUE}
 ac<-read.csv("E:\\ReproducibleResearch\\activity.csv")
-
-#Aggregating the steps data based on date
-
 ttsteps<-aggregate(steps~date,ac,sum,na.action=na.omit)
-hist(ttsteps$steps,breaks=53,xlab="DaywiseTotalsteps",main="DayWiseTotal")
+```
+
+
+## What is mean total number of steps taken per day?
+```{r echo=TRUE}
+histst(ttsteps$steps,breaks=53,xlab="DaywiseTotalsteps",main="DayWiseTotal")
 
 #Removing NA values
 
@@ -21,3 +32,16 @@ as.data.frame(meandatewise)
 mediandatewise<-tapply(ac$steps,f,median)
 as.data.frame(mediandatewise)
 ```
+
+
+
+## What is the average daily activity pattern?
+
+
+
+## Imputing missing values
+
+
+
+## Are there differences in activity patterns between weekdays and weekends?
+>>>>>>> c0525389ea6e8a244d4766efa36364c84cc1fff8
