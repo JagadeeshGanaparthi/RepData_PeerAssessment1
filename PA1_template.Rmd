@@ -19,10 +19,6 @@ ttsteps<-aggregate(steps~date,ac,sum,na.action=na.omit)
 ```{r echo=TRUE}
 hist(ttsteps$steps,breaks=53,xlab="DaywiseTotalsteps",main="DayWiseTotal")
 
-#Removing NA values
-
-ac<-ac[complete.cases(ac),]
-
 #To encode vector as a factor for date field
 #f<-factor(ac$date)
 #Calculate mean and mode of steps by day wise
@@ -37,10 +33,26 @@ median(ttsteps$steps)
 
 
 ## What is the average daily activity pattern?
+```{r echo=TRUE}
+###Average based on interval data
+ttmean<-aggregate(steps~interval,ac,mean,na.action=na.omit)
+plot(ttmean$interval,ttmean$steps,main="Average daily activity pattern",
+     xlab="Interval",ylab="Average",type="l")
 
+#Maximu average interval
+subset(ttmean,as.numeric(ttmean$steps)==max(as.numeric(ttmean$steps)),select=interval)
 
+```
 
 ## Imputing missing values
+
+```{r echo=TRUE}
+#Total no of missing records
+NROW(ac[!complete.cases(ac),])
+
+#Using mean we can update the NA with mean of that day
+
+```
 
 
 
