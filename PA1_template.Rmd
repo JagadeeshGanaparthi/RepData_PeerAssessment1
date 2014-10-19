@@ -17,20 +17,21 @@ ttsteps<-aggregate(steps~date,ac,sum,na.action=na.omit)
 
 ## What is mean total number of steps taken per day?
 ```{r echo=TRUE}
-histst(ttsteps$steps,breaks=53,xlab="DaywiseTotalsteps",main="DayWiseTotal")
+hist(ttsteps$steps,breaks=53,xlab="DaywiseTotalsteps",main="DayWiseTotal")
 
 #Removing NA values
 
 ac<-ac[complete.cases(ac),]
 
 #To encode vector as a factor for date field
-f<-factor(ac$date)
+#f<-factor(ac$date)
 #Calculate mean and mode of steps by day wise
 
-meandatewise<-tapply(ac$steps,f,mean)
-as.data.frame(meandatewise)
-mediandatewise<-tapply(ac$steps,f,median)
-as.data.frame(mediandatewise)
+#meandatewise<-tapply(ac$steps,f,mean)
+mean(ttsteps$steps)
+median(ttsteps$steps)
+#mediandatewise<-tapply(ac$steps,f,median)
+#as.data.frame(mediandatewise)
 ```
 
 
